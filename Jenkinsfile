@@ -4,7 +4,7 @@ pipeline{
     stages{
         stage('Get Project'){
             steps{
-                url: 'https://github.com/luke2242/JenkinsTestProject.git'
+                'https://github.com/luke2242/JenkinsTestProject.git'
             }
         }
         stage('build'){
