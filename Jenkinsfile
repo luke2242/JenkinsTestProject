@@ -10,7 +10,7 @@ pipeline {
 
         stage('build') {
             steps {
-                dir('JenkinsTestProject') {
+                dir('CT209_Lab5TestProject') {
                     sh 'mvn clean'
                     sh 'mvn dependency:copy-dependencies'
                     sh 'mvn compile'
@@ -20,7 +20,7 @@ pipeline {
 
         stage('Exec') {
             steps {
-                dir('JenkinsTestProject') {
+                dir('CT209_Lab5TestProject') {
                     sh 'mvn exec:java'
                 }
             }
