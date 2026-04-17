@@ -10,15 +10,19 @@ pipeline {
 
         stage('build') {
             steps {
-                sh 'mvn clean:clean'
-                sh 'mvn dependency:copy-dependencies'
-                sh 'mvn compiler:compile'
+                dir('JenkinsTestProject') {
+                    sh 'mvn clean'
+                    sh 'mvn dependency:copy-dependencies'
+                    sh 'mvn compile'
+                }
             }
         }
 
         stage('Exec') {
             steps {
-                sh 'mvn exec:java'
+                dir('JenkinsTestProject') {
+                    sh 'mvn exec:java'
+                }
             }
         }
     }
