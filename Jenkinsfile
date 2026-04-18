@@ -18,6 +18,14 @@ pipeline {
             }
         }
 
+        stage('package') {
+            steps {
+                dir('CT209_Lab5TestProject') {
+                    sh 'mvn package'
+                }
+            }
+        }
+
         stage('Exec') {
             steps {
                 dir('CT209_Lab5TestProject') {
